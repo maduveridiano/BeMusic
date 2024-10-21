@@ -11,8 +11,8 @@ app.get('/login', (req, res) => {
 app.post('/cadastro', (req, res) => {
     try{
         //verificar se os campos estão preenchidos
-        const {username, email, password, birthdate} = req.body
-    if(!username || !email || !password|| !birthdate){
+        const data = req.body
+    if(!data.username || !data.email || !data.password|| !data.birthdate){
         res.status(406).send('Preencha todos os campos')
         return
     }
