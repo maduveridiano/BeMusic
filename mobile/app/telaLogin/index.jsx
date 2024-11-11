@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Text, TextInput, View, StyleSheet, Image, Pressable } from "react-native";
-import InputPlace from "./inputPlace/InputPlace";
-
+import React, { useState } from "react";
+import { Text, TextInput, View, StyleSheet, Pressable, ImageBackground } from "react-native";
+import LinearGradient from 'react-native-linear-gradient';
 
 export default Login = () => {
 
-    const [name, setName] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const fetchData = async () => {
         try {
-            console.log(name, email, password)
+            console.log(email, password);
 
             const response = await fetch('https://taskhub-s37f.onrender.com/auth/signup', {
                 method: "POST",
@@ -20,56 +18,110 @@ export default Login = () => {
                     "Content-Type": 'application/json'
                 },
                 body: JSON.stringify({
-                    "name": name,
                     "email": email,
                     "password": password
                 })
+            });
+            
+            if (response.status === 200) {
+                alert('Usuário criado com sucesso');
+            } else {
+                alert('Erro ao criar usuário');
             }
-            ).then((response) => {
-                if (response.status == 200)
-                    alert('Usuário criado com sucesso')
-            })
         } catch (error) {
-            console.error("Erro: ", error)
+            console.error("Erro: ", error);
         }
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Sign Up</Text>
-            <View>
-                <InputPlace value={name} onChangeTextHandler={setName} icon={"https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-256.png"} label={"Nome"} />
-                <InputPlace value={email} onChangeTextHandler={setEmail} icon={"https://cdn3.iconfinder.com/data/icons/essential-pack-2/48/8-Email-256.png"} label={"Email"} />
-                <InputPlace value={password} onChangeTextHandler={setPassword} icon={"https://cdn-icons-png.flaticon.com/512/696/696975.png"} label={"Senha"} />
+        <ImageBackground source={require('../../assets/images/Background.png')} style={styles.background}>
+            <View style={styles.overlay}>
+                <Text style={styles.title}>BeMusic</Text>
+                <View style={styles.inputContainer}>
+                    <TextInput 
+                        style={styles.input} 
+                        placeholder="Email ou Usuário" 
+                        placeholderTextColor="#ccc"
+                        value={email}
+                        onChangeText={setEmail}
+                    />
+                    <TextInput 
+                        style={styles.input} 
+                        placeholder="Senha" 
+                        placeholderTextColor="#ccc"
+                        secureTextEntry
+                        value={password}
+                        onChangeText={setPassword}
+                    />
+                </View>
+                <Pressable onPress={fetchData}>
+                    <LinearGradient 
+                        colors={['#6200ea', '#3700b3']} 
+                        style={styles.button}
+                    >
+                        <Text style={styles.buttonText}>Entre em sua conta</Text>
+                    </LinearGradient>
+                </Pressable>
+                <Text style={styles.linkText}>
+                    Caiu aqui de <Text style={styles.highlight}>paraquedas?</Text> Crie sua conta <Text style={styles.highlight}>aqui</Text>
+                </Text>
             </View>
-
-            <Pressable style={styles.button} onPress={fetchData}><Text style={{ color: '#ffffff' }}>Sign Up</Text></Pressable>
-
-        </View>
+        </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: "#FFFFFF",
+    background: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         width: '100%',
         height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 100
+    },
+    overlay: {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+        width: '90%',
+        borderRadius: 15,
+        padding: 20,
+        alignItems: 'center'
     },
     title: {
-        fontSize: 40,
-        fontWeight: 'bold'
+        color: '#FFFFFF',
+        fontSize: 36,
+        fontWeight: 'bold',
+        marginBottom: 20
+    },
+    inputContainer: {
+        width: '100%',
+        marginBottom: 20,
+    },
+    input: {
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
+        height: 50,
+        paddingHorizontal: 15,
+        marginBottom: 15,
+        color: '#000',
     },
     button: {
-        backgroundColor: '#333333',
         width: 250,
-        height: 40,
-        display: 'flex',
-        alignItems: 'center',
+        height: 50,
+        borderRadius: 25,
         justifyContent: 'center',
-        borderRadius: 5
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    buttonText: {
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+    },
+    linkText: {
+        color: '#FFFFFF',
+        marginTop: 20,
+        textAlign: 'center'
+    },
+    highlight: {
+        color: '#6200ea',
+        textDecorationLine: 'underline'
     }
-})
+});
