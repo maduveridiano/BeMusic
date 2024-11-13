@@ -11,7 +11,7 @@ export default Login = () => {
         try {
             console.log(email, password);
 
-            const response = await fetch('https://taskhub-s37f.onrender.com/auth/signup', {
+            const response = await fetch('', {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',
