@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
         dialect: 'postgres'
     }
 )
-const User = sequelize.define('user', {
+export const User = sequelize.define('user', {
     username: {
         type: Sequelize.DataTypes.STRING,
         allowNull: false,

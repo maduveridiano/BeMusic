@@ -1,4 +1,8 @@
- async (req, res) => {
+import { User } from '../db'
+import bcryptjs from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+
+export const cadastro = async (req, res) => {
     try{
         //verificar se os campos estão preenchidos
         const data = req.body
@@ -31,7 +35,7 @@
     }
 }
 
-async (req, res) => {
+export const login = async  (req, res) => {
     try{
         const data = req.body
         //verificar se os campos estão preenchidos
