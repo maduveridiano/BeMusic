@@ -1,4 +1,4 @@
-import { User } from '../db'
+
 import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 

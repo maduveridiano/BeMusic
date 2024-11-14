@@ -1,127 +1,81 @@
-import React, { useState } from "react";
-import { Text, TextInput, View, StyleSheet, Pressable, ImageBackground } from "react-native";
-import LinearGradient from 'react-native-linear-gradient';
+import React, { useEffect, useState } from "react";
+import { Text, TextInput, View, StyleSheet, Image, Pressable } from "react-native";
+import InputPlace from "./inputPlace/InputPlace";
 
-export default Login = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+export default SignUp = () => {
+
+    const [name, setName] = React.useState('');
+    const [surname, setSurName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [birthdate, setBirthdate] = React.useState('');
+    const [password, setPassword] = React.useState('');
 
     const fetchData = async () => {
         try {
-            console.log(email, password);
+            console.log(name, email, password)
 
-            const response = await fetch('', {
+            const response = await fetch('http://localhost:8000/registro', {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',
                     "Content-Type": 'application/json'
                 },
                 body: JSON.stringify({
+                    "nome": name,
+                    "sobrenome": surname,
                     "email": email,
-                    "password": password
+                    "nascimento": birthdate,
+                    "senha": password
                 })
-            });
-            
-            if (response.status === 200) {
-                alert('Usuário criado com sucesso');
-            } else {
-                alert('Erro ao criar usuário');
             }
+            ).then((response) => {
+                if (response.status == 201)
+                    alert('Usuário criado com sucesso')
+            })
         } catch (error) {
-            console.error("Erro: ", error);
+            console.error("Erro: ", error)
         }
     }
 
     return (
-        <ImageBackground source={require('../../assets/images/Background.png')} style={styles.background}>
-            <View style={styles.overlay}>
-                <Text style={styles.title}>BeMusic</Text>
-                <View style={styles.inputContainer}>
-                    <TextInput 
-                        style={styles.input} 
-                        placeholder="Email ou Usuário" 
-                        placeholderTextColor="#ccc"
-                        value={email}
-                        onChangeText={setEmail}
-                    />
-                    <TextInput 
-                        style={styles.input} 
-                        placeholder="Senha" 
-                        placeholderTextColor="#ccc"
-                        secureTextEntry
-                        value={password}
-                        onChangeText={setPassword}
-                    />
-                </View>
-                <Pressable onPress={fetchData}>
-                    <LinearGradient 
-                        colors={['#6200ea', '#3700b3']} 
-                        style={styles.button}
-                    >
-                        <Text style={styles.buttonText}>Entre em sua conta</Text>
-                    </LinearGradient>
-                </Pressable>
-                <Text style={styles.linkText}>
-                    Caiu aqui de <Text style={styles.highlight}>paraquedas?</Text> Crie sua conta <Text style={styles.highlight}>aqui</Text>
-                </Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>Sign Up</Text>
+            <View>
+                <InputPlace value={name} onChangeTextHandler={setName} icon={"https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-256.png"} label={"Nome"} />
+                <InputPlace value={surname} onChangeTextHandler={setSurName} icon={"https://cdn3.iconfinder.com/data/icons/essential-pack-2/48/8-Email-256.png"} label={"Sobrenome"} />
+                <InputPlace value={email} onChangeTextHandler={setEmail} icon={"https://cdn-icons-png.flaticon.com/512/696/696975.png"} label={"Email"} />
+                <InputPlace value={birthdate} onChangeTextHandler={setBirthdate} icon={"https://cdn-icons-png.flaticon.com/512/696/696975.png"} label={"Data de nascimento"} />
+                <InputPlace value={password} onChangeTextHandler={setPassword} icon={"https://cdn-icons-png.flaticon.com/512/696/696975.png"} label={"Senha"} />
             </View>
-        </ImageBackground>
+
+            <Pressable style={styles.button} onPress={fetchData}><Text style={{ color: '#ffffff' }}>Sign Up</Text></Pressable>
+
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    background: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+    container: {
+        backgroundColor: "#FFFFFF",
         width: '100%',
         height: '100%',
-    },
-    overlay: {
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', 
-        width: '90%',
-        borderRadius: 15,
-        padding: 20,
-        alignItems: 'center'
-    },
-    title: {
-        color: '#FFFFFF',
-        fontSize: 36,
-        fontWeight: 'bold',
-        marginBottom: 20
-    },
-    inputContainer: {
-        width: '100%',
-        marginBottom: 20,
-    },
-    input: {
-        backgroundColor: '#FFFFFF',
-        borderRadius: 10,
-        height: 50,
-        paddingHorizontal: 15,
-        marginBottom: 15,
-        color: '#000',
-    },
-    button: {
-        width: 250,
-        height: 50,
-        borderRadius: 25,
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20,
+        gap: 100
     },
-    buttonText: {
-        color: '#FFFFFF',
-        fontWeight: 'bold',
+    title: {
+        fontSize: 40,
+        fontWeight: 'bold'
     },
-    linkText: {
-        color: '#FFFFFF',
-        marginTop: 20,
-        textAlign: 'center'
-    },
-    highlight: {
-        color: '#6200ea',
-        textDecorationLine: 'underline'
+    button: {
+        backgroundColor: '#333333',
+        width: 250,
+        height: 40,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 5
     }
-});
+})
