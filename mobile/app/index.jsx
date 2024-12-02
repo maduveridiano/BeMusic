@@ -1,78 +1,59 @@
-import React, { useEffect, useState } from "react";
-import { Text, TextInput, View, StyleSheet, Image, Pressable } from "react-native";
-import InputPlace from "./inputPlace/InputPlace";
-import {Link} from "expo-router"
+import { View, StyleSheet, Image, Animated } from 'react-native'
+import { LinearGradient } from "expo-linear-gradient";
+import { useEffect, useRef } from 'react';
+import { useRouter } from 'expo-router';
 
+const SplashScreen = () => {
+    const router = useRouter()
+    const fadeAnimation = useRef(new Animated.Value(0)).current
 
-export default Login = () => {
-
-    const [name, setName] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
-
-    const fetchData = async () => {
-        try {
-            console.log(name, email, password)
-
-            const response = await fetch('http://localhost:8000/login', {
-                method: "POST",
-                
-                headers: {
-
-                    Accept: 'application/json',
-                    "Content-Type": 'application/json'
-                },
-                body: JSON.stringify({
-                    "email": email,
-                    "senha": password
-                })
-            }
-            ).then((response) => {
-                if (response.status == 200)
-                    alert('Usuário criado com sucesso')
-            })
-        } catch (error) {
-            console.error("Erro: ", error)
-        }
+    const fadeIn = () => {
+        Animated.timing(fadeAnimation, {
+            toValue: 1,
+            duration: 2000,
+            useNativeDriver: true,
+        }).start();
     }
 
-    return (
+    useEffect(() =>{
+        fadeIn()
+        const timer = setTimeout(() =>{
+          router.push('/login')
+        },3000)
+        return() => clearTimeout(timer)
+      }, [])
+    return(
         <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
-            <View>
-                <InputPlace value={email} onChangeTextHandler={setEmail} icon={"https://cdn3.iconfinder.com/data/icons/essential-pack-2/48/8-Email-256.png"} label={"Email"} />
-                <InputPlace value={password} onChangeTextHandler={setPassword} icon={"https://cdn-icons-png.flaticon.com/512/696/696975.png"} label={"Senha"} />
-                <Link href={"/telaCadastro"}><Text style={{fontSize: 12}}>Não possui uma conta? Cadastre-se</Text></Link>
-
-            </View>
-
-            <Pressable style={styles.button} onPress={fetchData}><Text style={{ color: '#ffffff' }}>Login</Text></Pressable>
-
+            <LinearGradient
+                colors={['#121212', 'black']}
+                style={styles.background}
+            />
+            <Animated.Image 
+            style={[styles.logo, {
+                opacity: fadeAnimation
+            }]}
+            source={require('../assets/images/spotifake.png')}
+            />
         </View>
     )
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create ({
     container: {
-        backgroundColor: "#FFFFFF",
-        width: '100%',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }, logo:{
+        width: 300,
+        height: 300
+    },
+    background: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
         height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 100
-    },
-    title: {
-        fontSize: 40,
-        fontWeight: 'bold'
-    },
-    button: {
-        backgroundColor: '#333333',
-        width: 250,
-        height: 40,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 5
     }
 })
+
+export default SplashScreen
