@@ -4,12 +4,12 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const sequelize = new Sequelize(
-    process.env.dbname, 
-    process.env.dbusername,  
-    process.env.dbpassword, 
+    process.env.DBNAME, 
+    process.env.DBUSERNAME,  
+    process.env.DBPASSWORD, 
     {
-        host: process.env.dbhost, 
-        port: process.env.dbport,  
+        host: process.env.DBHOST, 
+        port: process.env.DBPORT,  
         dialect: 'postgres', 
     }
 )
