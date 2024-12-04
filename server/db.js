@@ -1,16 +1,20 @@
-import Express from "express"; 
-import { criarTabelas } from "./db.js";
-import cors from "cors";
-import { rotas_autenticacao } from "./rotas/rotas_autenticacao.js";
-import { rotas_usuarios } from "./rotas/rotas_usuario.js";
-import { rotas_artistas } from "./rotas/rotas_artista.js";
-import { rotas_albums } from "./rotas/rotas_album.js";
 import Sequelize from 'sequelize'
 import dotenv from 'dotenv'
 
 dotenv.config()
 
-const User = Sequelize.define('user', {
+const sequelize = new Sequelize(
+    process.env.dbname, 
+    process.env.dbusername,  
+    process.env.dbpassword, 
+    {
+        host: process.env.dbhost, 
+        port: process.env.dbport,  
+        dialect: 'postgres', 
+    }
+)
+
+const User = sequelize.define('user', {
     nome: {
         type: Sequelize.DataTypes.STRING,
         allowNull: false,
@@ -96,7 +100,6 @@ const Musica = sequelize.define('musica', {
 });
 
 
-
 Album.belongsTo(Artista, {
     foreignKey: 'artista_id',
     onDelete: 'CASCADE',
@@ -119,13 +122,13 @@ Musica.belongsTo(Artista, {
 });
 
 const criarTabelas = () => {
-    Sequelize.authenticate().then(() => {
+    sequelize.authenticate().then(() => {
         console.log('conectou')
     })
         .catch((err) => {
             console.log(err)
         })
-    Sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: true }).then(() => {
         console.log('tabela criada')
     })
 }
