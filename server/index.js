@@ -7,7 +7,6 @@ import { rotas_artistas } from './rotas/rotas_artista.js';
 import { rotas_albums } from './rotas/rotas_album.js';
 import { rotas_musicas } from './rotas/rotas_musica.js';
 
-
 const app = Express()
 app.use(Express.json())
 app.use(cors())
