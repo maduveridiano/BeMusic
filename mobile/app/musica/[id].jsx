@@ -78,174 +78,196 @@ const Musica = () => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#121212'
-    },
-    topBar: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 60,
-        backgroundColor: "transparent",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 10,
-    },
-    topBarText: {
-        fontSize: 24,
-        fontWeight: "bold",
-        textAlign: "center",
-        color: 'white'
-    },
-    back: {
-        position: 'absolute',
-        top: 16,
-        left: 8,
-        zIndex: 10
-    },
-    scrollView: {
-        marginTop: 0,
-        paddingBottom: 90
-    },
-    scrollContent: {
-        paddingBottom: 20,
-    },
-    topImage: {
-        height: 475,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    background: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: -1,
-        top: -1,
-        height: '100%',
-    },
-    albumImage: {
-        width: 250,
-        height: 250,
-        borderRadius: 4,
-        zIndex: 10,
-    },
-    albumName: {
-        position: 'absolute',
-        fontSize: 20,
-        width: '100%',
-        fontWeight: "bold",
-        textAlign: 'left',
-        paddingHorizontal: 12,
-        lineHeight: 48,
-        marginVertical: 10,
-        color: 'white',
-        bottom: 0,
-        zIndex: 10
-    },
-    albumMusica: {
-        position: 'absolute',
-        fontSize: 24,
-        width: '100%',
-        fontWeight: "bold",
-        textAlign: 'left',
-        paddingHorizontal: 12,
-        lineHeight: 48,
-        marginVertical: 10,
-        color: 'white',
-        bottom: 34,
-        zIndex: 10
-    },
-    play: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingHorizontal: 14
-    },
-    artistaInfo: {
-        flexDirection: 'row',
-        gap: 6,
-        marginBottom: 3
-    },
-    artistaImage: {
-        width: 20,
-        height: 20,
-        borderRadius: 100
-    },
-    artistaNome: {
-        color: 'white'
-    },
-    albumInfo: {
-        fontSize: 12,
-        color: 'rgba(255,255,255,0.7)'
-    },
-    sectionTitle: {
-        fontSize: 20,
-        fontWeight: "bold",
-        marginLeft: 10,
-        marginVertical: 10,
-        color: 'white'
-    },
-    listContainer: {
-        paddingLeft: 10,
-    },
-    item: {
-        padding: 6,
-        marginRight: 10,
-        borderRadius: 5,
-        flexDirection: 'row',
-        gap: 8,
-        alignItems: 'center'
-    },
-    itemA: {
-        padding: 4,
-        borderRadius: 4,
-        gap: 2,
-        alignItems: 'center'
-    },
-    itemText: {
-        fontSize: 16,
-        color: 'white',
-        fontWeight: '500'
-    },
-    itemAText: {
-        fontSize: 16,
-        color: 'white',
-        fontWeight: '500',
-        width: 120,
-        textAlign: 'left'
-    },
-    itemIndex: {
-        fontSize: 14,
-        color: 'white',
-        fontWeight: '400',
-        width: 16,
-        textAlign: 'center'
-    },
-    itemAYear: {
-        fontSize: 14,
-        color: 'white',
-        fontWeight: '300',
-        width: '100%',
-        textAlign: 'left'
-    },
-    itemAImage: {
-        width: 120,
-        height: 120,
-        borderRadius: 4,
-    },
-    itemCover: {
-        width: 45,
-        height: 45,
-    },
-    line: {
-        width: '90%',
-        height: 2,
-        backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
+   container: {
+    flex: 1,
+    backgroundColor: '#1A1A1A', 
+},
+topBar: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 60,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+},
+topBarText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: '#FFD700',
+},
+back: {
+    position: 'absolute',
+    top: 16,
+    left: 8,
+    zIndex: 10,
+},
+scrollView: {
+    marginTop: 0,
+    paddingBottom: 90,
+},
+scrollContent: {
+    paddingBottom: 20,
+},
+topImage: {
+    height: 475,
+    justifyContent: 'center',
+    alignItems: 'center',
+},
+background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: -1,
+    top: -1,
+    height: '100%',
+    backgroundColor: 'rgba(0,0,0,0.8)',
+},
+albumImage: {
+    width: 250,
+    height: 250,
+    borderRadius: 12,
+    zIndex: 10,
+    borderWidth: 2,
+    borderColor: '#FFD700',
+},
+albumName: {
+    position: 'absolute',
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: 'left',
+    paddingHorizontal: 12,
+    lineHeight: 28,
+    marginVertical: 10,
+    color: '#FFFFFF',
+    bottom: 0,
+    zIndex: 10,
+},
+albumMusica: {
+    position: 'absolute',
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: 'left',
+    paddingHorizontal: 12,
+    lineHeight: 28,
+    marginVertical: 10,
+    color: '#FFFFFF',
+    bottom: 34,
+    zIndex: 10,
+},
+play: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 14,
+},
+artistaInfo: {
+    flexDirection: 'row',
+    gap: 6,
+    marginBottom: 3,
+},
+artistaImage: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#FFD700',
+},
+artistaNome: {
+    color: '#FFFFFF',
+    fontWeight: '500',
+},
+albumInfo: {
+    fontSize: 12,
+    color: 'rgba(255,255,255,0.8)',
+},
+sectionTitle: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginLeft: 12,
+    marginVertical: 12,
+    color: '#FFD700',
+},
+listContainer: {
+    paddingLeft: 12,
+},
+item: {
+    padding: 6,
+    marginRight: 10,
+    borderRadius: 8,
+    flexDirection: 'row',
+    gap: 8,
+    alignItems: 'center',
+    backgroundColor: '#292929', 
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+},
+itemA: {
+    padding: 4,
+    borderRadius: 6,
+    gap: 4,
+    alignItems: 'center',
+    backgroundColor: '#393939', 
+},
+itemText: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    fontWeight: '500',
+},
+itemAText: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    fontWeight: '500',
+    width: 120,
+    textAlign: 'left',
+},
+itemIndex: {
+    fontSize: 14,
+    color: '#FFD700',
+    fontWeight: '600',
+    width: 16,
+    textAlign: 'center',
+},
+itemAYear: {
+    fontSize: 14,
+    color: 'rgba(255,255,255,0.7)',
+    width: '100%',
+    textAlign: 'left',
+},
+itemAImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#FFD700',
+},
+itemCover: {
+    width: 45,
+    height: 45,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#FFD700',
+},
+line: {
+    width: '90%',
+    height: 2,
+    backgroundColor: '#FFD700', 
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
+},
+
 });
 
 export default Musica;

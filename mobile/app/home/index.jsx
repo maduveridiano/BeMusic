@@ -138,63 +138,85 @@ const Home = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#121212',
-    },
-    sectionContainer: {
-        marginVertical: 10,
-    },
-    feed: {
-        marginTop: 70,
-        paddingBottom: 80
-    },
-    row: {
-        paddingHorizontal: 20,
-        gap: 10,
-    },
-    img: {
-        width: 130,
-        height: 130,
-        marginBottom: 4
-    },
-    itemContainer: {
-        alignItems: 'center',
-        width: 130,
-        borderRadius: 8,
-    },
-    itemText: {
-        color: '#FFFFFF',
-    },
-    header: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#FFFFFF',
-        paddingVertical: 8,
-        paddingHorizontal: 10,
-    },
-    album: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 13,
-        height: 20,
-        width:'100%',
-        textAlign: 'left'
-    },
-    artista: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 13,
-        height: 20,
-        width:'100%',
-        textAlign: 'center'
-    },
-    autor: {
-        color: "rgba(255,255,255,0.8)",
-        fontSize: 12,
-        textAlign: 'left',
-        marginBottom: 6,
-        width:'100%'
-    },
+    flex: 1,
+    backgroundColor: '#1E1E2C', 
+},
+sectionContainer: {
+    marginVertical: 12,
+},
+feed: {
+    marginTop: 70,
+    paddingBottom: 80,
+},
+row: {
+    paddingHorizontal: 20,
+    gap: 12,
+},
+img: {
+    width: 130,
+    height: 130,
+    marginBottom: 6,
+    borderRadius: 12, 
+    borderWidth: 2,
+    borderColor: '#FFD700', 
+},
+itemContainer: {
+    alignItems: 'center',
+    width: 130,
+    borderRadius: 10,
+    backgroundColor: '#2C2C3E', 
+    padding: 8,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 4,
+},
+itemText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '500',
+    marginTop: 4,
+},
+header: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#FFD700', 
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderBottomWidth: 2,
+    borderBottomColor: '#FFD700',
+},
+album: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 14,
+    height: 22,
+    width: '100%',
+    textAlign: 'left',
+    textShadowColor: '#000',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+},
+artista: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 14,
+    height: 22,
+    width: '100%',
+    textAlign: 'center',
+    textShadowColor: '#000',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+},
+autor: {
+    color: "rgba(255,255,255,0.85)",
+    fontSize: 12,
+    textAlign: 'left',
+    marginBottom: 6,
+    width: '100%',
+    fontStyle: 'italic',
+},
 });
 
 export default Home;

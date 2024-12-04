@@ -124,117 +124,149 @@ const Artista = () => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#121212'
-    },
-    topBar: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 60,
-        backgroundColor: "#080808",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 10,
-    },
-    topBarText: {
-        fontSize: 24,
-        fontWeight: "bold",
-        textAlign: "center",
-        color: 'white'
-    },
-    back: {
-        position: 'absolute',
-        top: 16,
-        left: 8,
-        zIndex: 10
-    },
-    scrollView: {
-        marginTop: 0,
-        paddingBottom: 90
-    },
-    scrollContent: {
-        paddingBottom: 20,
-    },
-    topImage: {
-        height: 270
-    },
-    background: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: -1,
-        height: 220,
-    },
-    artistImage: {
-        width: "100%",
-        height: "100%",
-    },
-    artistName: {
-        position: 'absolute',
-        fontSize: 52,
-        fontWeight: "bold",
-        textAlign: 'left',
-        paddingHorizontal: 12,
-        lineHeight: 48,
-        marginVertical: 10,
-        color: 'white',
-        bottom: 0,
-        zIndex: 10
-    },
-    sectionTitle: {
-        fontSize: 20,
-        fontWeight: "bold",
-        marginLeft: 10,
-        marginVertical: 10,
-        color: 'white'
-    },
-    listContainer: {
-        paddingLeft: 10,
-    },
-    item: {
-        backgroundColor: "#121212",
-        padding: 6,
-        marginRight: 10,
-        borderRadius: 5,
-        flexDirection: 'row',
-        gap: 8,
-        alignItems: 'center'
-    },
-    itemText: {
-        fontSize: 16,
-        color: 'white',
-        fontWeight: '500'
-    },
-    itemIndex: {
-        fontSize: 14,
-        color: 'white',
-        fontWeight: '400'
-    },
-    itemYear: {
-        fontSize: 14,
-        color: 'white',
-        fontWeight: '300'
-    },
-    itemImage: {
-        width: 70,
-        height: 70,
-        borderRadius: 4,
-    },
-    itemCover: {
-        width: 45,
-        height: 45,
-    },
-    bioContainer: {
-        padding: 10,
-    },
-    bioText: {
-        fontSize: 14,
-        lineHeight: 24,
-        color: 'white'
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#1E1E2C', 
+},
+topBar: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 60,
+    backgroundColor: "#2C2C3E", 
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 10,
+    shadowColor: "#000", 
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    elevation: 6,
+    borderBottomWidth: 1,
+    borderBottomColor: "#444",
+},
+topBarText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: '#FFD700',
+},
+back: {
+    position: 'absolute',
+    top: 16,
+    left: 8,
+    zIndex: 10,
+},
+scrollView: {
+    marginTop: 0,
+    paddingBottom: 90,
+},
+scrollContent: {
+    paddingBottom: 20,
+},
+topImage: {
+    height: 270,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20, 
+},
+background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: -1,
+    height: 220,
+},
+artistImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 10, 
+},
+artistName: {
+    position: 'absolute',
+    fontSize: 52,
+    fontWeight: "bold",
+    textAlign: 'left',
+    paddingHorizontal: 12,
+    lineHeight: 48,
+    marginVertical: 10,
+    color: '#FFD700', 
+    bottom: 0,
+    zIndex: 10,
+    textShadowColor: '#000',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 4, 
+},
+sectionTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginLeft: 10,
+    marginVertical: 10,
+    color: '#FFFFFF',
+    borderBottomWidth: 2,
+    borderBottomColor: '#FFD700', 
+},
+listContainer: {
+    paddingLeft: 10,
+},
+item: {
+    backgroundColor: "#2C2C3E",
+    padding: 10,
+    marginRight: 10,
+    borderRadius: 8, 
+    flexDirection: 'row',
+    gap: 8,
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 4,
+},
+itemText: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    fontWeight: '600',
+},
+itemIndex: {
+    fontSize: 14,
+    color: '#AAAAAA',
+    fontWeight: '400',
+},
+itemYear: {
+    fontSize: 14,
+    color: '#888888',
+    fontWeight: '300',
+},
+itemImage: {
+    width: 70,
+    height: 70,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#FFD700', 
+},
+itemCover: {
+    width: 45,
+    height: 45,
+},
+bioContainer: {
+    padding: 12,
+    backgroundColor: '#2C2C3E',
+    borderRadius: 8,
+    marginHorizontal: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 4,
+},
+bioText: {
+    fontSize: 14,
+    lineHeight: 24,
+    color: '#FFFFFF',
+    fontStyle: 'italic',
+},
+
 });
 
 export default Artista;

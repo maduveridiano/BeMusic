@@ -12,7 +12,7 @@ const app = Express()
 app.use(Express.json())
 app.use(cors())
 
-//criarTabelas() // --> usar so uma vez já que com o 'force: true' ele sempre apaga a tabela existente e cria uma nova do zero
+// criarTabelas()
 
 app.use('/autenticacao', rotas_autenticacao ) 
 app.use('/usuario', rotas_usuarios)

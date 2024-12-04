@@ -45,51 +45,72 @@ const Biblioteca = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        backgroundColor: '#121212'
-    },
-    title:{
-        color: 'white',
-        fontSize: 32,
-        fontWeight: 'bold',
-    },
-    scrollView: {
-        height: '100%',
-        width: '100%',
-        marginTop: 80,
-    },
-    flatListContent: {
-        paddingBottom: 90
-    },
-    itemContainer: {
-        minWidth: 300,
-        width: '100%',
-        maxWidth:420,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 16,
-        marginBottom:14
-    },
-    img: {
-        width: 60,
-        height: 60
-    },
-    info: {
-        width: "90%",
-        maxWidth: 240
-    },
-    nome: {
-        color: 'white',
-        fontSize: 14,
-        fontWeight:'bold'
-    },
-    tipo: {
-        color: 'rgba(255,255,255,0.9)',
-        fontSize: 12,
-    }
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: '#1E1E2C', 
+},
+title: {
+    color: '#FFD700',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textShadowColor: '#000',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 4, 
+    marginTop: 20,
+},
+scrollView: {
+    height: '100%',
+    width: '100%',
+    marginTop: 80,
+    paddingHorizontal: 16, 
+},
+flatListContent: {
+    paddingBottom: 90,
+},
+itemContainer: {
+    minWidth: 300,
+    width: '100%',
+    maxWidth: 420,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 16,
+    marginBottom: 14,
+    backgroundColor: '#2C2C3E', 
+    borderRadius: 10, 
+    padding: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 4,
+},
+img: {
+    width: 60,
+    height: 60,
+    borderRadius: 8, 
+    borderWidth: 1,
+    borderColor: '#FFD700', 
+},
+info: {
+    width: "90%",
+    maxWidth: 240,
+},
+nome: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: 'bold',
+    textShadowColor: '#000',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2, 
+},
+tipo: {
+    color: 'rgba(255,255,255,0.85)', 
+    fontSize: 12,
+    fontStyle: 'italic', 
+},
+
 })
 
 export default Biblioteca;
