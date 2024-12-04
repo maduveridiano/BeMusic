@@ -11,7 +11,7 @@ const app = Express()
 app.use(Express.json())
 app.use(cors())
 
-criarTabelas()
+// criarTabelas()
 
 app.use('/autenticacao', rotas_autenticacao ) 
 app.use('/usuario', rotas_usuarios)
